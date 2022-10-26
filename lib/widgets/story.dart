@@ -27,7 +27,7 @@ class Story extends StatelessWidget {
               ),
             ),
             CircleAvatar(
-              radius: 35,
+              radius: 36,
               backgroundImage: NetworkImage(
                 image,
               ),
@@ -51,8 +51,8 @@ class CircleColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 90,
-      height: 90,
+      width: 86,
+      height: 86,
       decoration: const BoxDecoration(
           shape: BoxShape.circle,
           gradient: LinearGradient(

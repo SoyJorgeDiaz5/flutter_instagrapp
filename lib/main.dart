@@ -78,7 +78,7 @@ class _InstagrappHomeState extends State<InstagrappHome> {
           ),
         ],
       ),
-      body: InstagrappHome(),
+      body: pagesList.elementAt(_index),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,

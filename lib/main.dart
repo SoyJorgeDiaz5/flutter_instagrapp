@@ -34,6 +34,10 @@ class InstagrappHome extends StatefulWidget {
 class _InstagrappHomeState extends State<InstagrappHome> {
   int _index = 0;
 
+  final pagesList = const [
+    InstagrappHome(),
+    InstagrappProfile(),
+  ];
   void onTapIndex(int index) {
     setState(() {
       _index = index;
@@ -74,32 +78,7 @@ class _InstagrappHomeState extends State<InstagrappHome> {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          SingleChildScrollView(
-            // padding: const EdgeInsets.only(left: 4.0, right: 4.0),
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: stories
-                  .map((story) => Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Story(
-                          image: story.image,
-                          name: story.name,
-                        ),
-                      ))
-                  .toList(),
-            ),
-          ),
-          const SizedBox(height: 8),
-          Column(
-            children: stories
-                .map((post) =>
-                    PostItem(imageUrl: post.image, username: post.name))
-                .toList(),
-          )
-        ],
-      ),
+      body: InstagrappHome(),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -116,6 +95,53 @@ class _InstagrappHomeState extends State<InstagrappHome> {
         currentIndex: _index,
         onTap: onTapIndex,
       ),
+    );
+  }
+}
+
+class InstagrappFeed extends StatelessWidget {
+  const InstagrappFeed({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        SingleChildScrollView(
+          // padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: stories
+                .map((story) => Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Story(
+                        image: story.image,
+                        name: story.name,
+                      ),
+                    ))
+                .toList(),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Column(
+          children: stories
+              .map(
+                  (post) => PostItem(imageUrl: post.image, username: post.name))
+              .toList(),
+        )
+      ],
+    );
+  }
+}
+
+class InstagrappProfile extends StatelessWidget {
+  const InstagrappProfile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Profile page!'),
     );
   }
 }

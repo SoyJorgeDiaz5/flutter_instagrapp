@@ -24,8 +24,21 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class InstagrappHome extends StatelessWidget {
+class InstagrappHome extends StatefulWidget {
   const InstagrappHome({Key? key}) : super(key: key);
+
+  @override
+  State<InstagrappHome> createState() => _InstagrappHomeState();
+}
+
+class _InstagrappHomeState extends State<InstagrappHome> {
+  int _index = 0;
+
+  void onTapIndex(int index) {
+    setState(() {
+      _index = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +99,22 @@ class InstagrappHome extends StatelessWidget {
                 .toList(),
           )
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _index,
+        onTap: onTapIndex,
       ),
     );
   }

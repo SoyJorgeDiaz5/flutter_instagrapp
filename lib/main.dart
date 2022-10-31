@@ -109,7 +109,6 @@ class InstagrappFeed extends StatelessWidget {
     return ListView(
       children: [
         SingleChildScrollView(
-          // padding: const EdgeInsets.only(left: 4.0, right: 4.0),
           scrollDirection: Axis.horizontal,
           child: Row(
             children: stories

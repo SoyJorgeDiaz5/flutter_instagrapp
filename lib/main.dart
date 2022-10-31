@@ -35,7 +35,7 @@ class _InstagrappHomeState extends State<InstagrappHome> {
   int _index = 0;
 
   final pagesList = const [
-    InstagrappHome(),
+    InstagrappFeed(),
     InstagrappProfile(),
   ];
   void onTapIndex(int index) {
